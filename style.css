@@ -1,16 +1,12 @@
-/* =========================================================
-   ENSTA LIBRARY — design tokens
-   خلفية كريمية دافئة + أخضر سيج للعناوين والتفاصيل
-   الطابع العام: أرشيف/دفتر مهندس — تبويبات على شكل فواصل ملف
-   ========================================================= */
+
 :root{
-  --bg:        #f4edda;   /* الخلفية */
-  --green:     #d6dec9;   /* الأخضر الأساسي */
-  --green-deep:#7d9068;   /* أخضر أغمق للأزرار والتشديد */
-  --green-line:#b9c6a4;   /* حدود خفيفة */
-  --ink:       #2f2b1f;   /* نص أساسي */
-  --ink-soft:  #756c59;   /* نص ثانوي */
-  --card:      #fffdf6;   /* خلفية البطاقات */
+  --bg:        #f4edda;   
+  --green:     #d6dec9;   
+  --green-deep:#7d9068;  
+  --green-line:#b9c6a4; 
+  --ink:       #2f2b1f;   
+  --ink-soft:  #756c59;   
+  --card:      #fffdf6;  
   --card-shadow: rgba(47,43,31,0.08);
 }
 
@@ -34,7 +30,6 @@ code{
   font-size:0.85em;
 }
 
-/* ============== الرأس ============== */
 .site-header{
   background:var(--bg);
   border-bottom:2px solid var(--green-line);
@@ -98,7 +93,7 @@ code{
   display:inline-block;
 }
 
-/* ============== Language switch ============== */
+
 .lang-switch{
   display:flex;
   background:var(--green);
@@ -130,7 +125,7 @@ code{
   outline-offset:2px;
 }
 
-/* ============== شريط التبويبات — بشكل فواصل ملف ============== */
+
 .cycle-tabs{
   max-width:1200px;
   margin:26px auto 0;
@@ -179,7 +174,6 @@ code{
   opacity:.85;
 }
 
-/* ============== المحتوى الرئيسي ============== */
 .content{
   max-width:1200px;
   margin:0 auto;
@@ -228,7 +222,7 @@ code{
   margin-top:6px;
 }
 
-/* ============== شبكة بطاقات المقاييس ============== */
+
 .module-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
@@ -303,7 +297,7 @@ code{
   outline-offset:2px;
 }
 
-/* ============== التذييل ============== */
+
 .site-footer{
   text-align:center;
   color:var(--ink-soft);
@@ -311,7 +305,7 @@ code{
   padding:30px 6vw 40px;
 }
 
-/* ============== الاستجابة للشاشات الصغيرة ============== */
+
 @media(max-width:640px){
   .brand-text h1{ font-size:1.5rem; }
   .cycle-tabs{ gap:4px; }
