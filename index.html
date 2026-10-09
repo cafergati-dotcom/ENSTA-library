@@ -8,17 +8,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-/* =========================================================
-   ENSTA LIBRARY — design tokens
-   ========================================================= */
+
 :root{
-  --bg:         #f4edda;   /* الخلفية */
-  --green:      #d6dec9;   /* الأخضر الأساسي */
-  --green-deep: #7d9068;   /* أخضر أغمق للأزرار والتشديد */
-  --green-line: #b9c6a4;   /* حدود خفيفة */
-  --ink:        #2f2b1f;   /* نص أساسي */
-  --ink-soft:   #756c59;   /* نص ثانوي */
-  --card:       #fffdf6;   /* خلفية البطاقات */
+  --bg:         #f4edda;   
+  --green:      #d6dec9;  
+  --green-deep: #7d9068;  
+  --green-line: #b9c6a4;   
+  --ink:        #2f2b1f;  
+  --ink-soft:   #756c59;   
+  --card:       #fffdf6;
   --card-shadow: rgba(47,43,31,0.08);
 }
 
@@ -32,7 +30,7 @@ body{
   min-height:100vh;
 }
 
-/* ============== الرأس ============== */
+
 .site-header{
   background:var(--bg);
   border-bottom:2px solid var(--green-line);
@@ -70,7 +68,6 @@ body{
 
 .header-right{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
 
-/* ============== Language switch ============== */
 .lang-switch{
   display:flex;
   background:var(--green);
@@ -94,7 +91,7 @@ body{
 .lang-btn:hover{ color:var(--ink); }
 .lang-btn.active{ background:var(--green-deep); color:var(--card); }
 
-/* ============== شريط التبويبات للسنوات ============== */
+
 .cycle-tabs{
   max-width:1200px;
   margin:26px auto 0;
@@ -131,7 +128,6 @@ body{
 .tab-code{ font-family:'Space Mono', monospace; font-weight:700; font-size:1rem; }
 .tab-label{ font-size:0.72rem; opacity:.85; }
 
-/* ============== المحتوى الرئيسي ============== */
 .content{
   max-width:1200px;
   margin:0 auto;
@@ -165,7 +161,7 @@ body{
   font-weight:700;
 }
 
-/* ============== تبويبات السداسي ============== */
+
 .semester-filter{
   display:flex;
   background:var(--bg);
@@ -191,7 +187,6 @@ body{
   color:var(--card);
 }
 
-/* ============== شبكة بطاقات المقاييس ============== */
 .module-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
@@ -293,7 +288,7 @@ body{
     </div>
   </header>
 
-  <!-- ===================== Cycle tabs ===================== -->
+
   <nav class="cycle-tabs" id="cycleTabs">
     <button class="tab active" data-year="cp1"><span class="tab-code">CP1</span><span class="tab-label" data-i18n="cp1Tab">Prépa 1</span></button>
     <button class="tab" data-year="cp2"><span class="tab-code">CP2</span><span class="tab-label" data-i18n="cp2Tab">Prépa 2</span></button>
@@ -304,7 +299,7 @@ body{
     <button class="tab" data-year="cs5"><span class="tab-code">CS5</span><span class="tab-label" data-i18n="cs5Tab">Spécialité 5</span></button>
   </nav>
 
-  <!-- ===================== Main Container ===================== -->
+
   <main class="content">
     <div class="panel-head">
       <h2>
@@ -312,7 +307,7 @@ body{
         <span class="panel-code" id="yearCode">CP1</span>
       </h2>
       
-      <!-- أزرار اختيار السداسي -->
+  
       <div class="semester-filter" id="semFilter">
         <button class="sem-btn active" data-sem="all">Tous</button>
         <button class="sem-btn" id="semBtn1" data-sem="s1">S1</button>
@@ -320,7 +315,6 @@ body{
       </div>
     </div>
 
-    <!-- شبكة عرض المواد تظهر هنا تلقائياً -->
     <div class="module-grid" id="moduleGrid"></div>
   </main>
 
@@ -329,11 +323,9 @@ body{
   </footer>
 
   <script>
-/* =======================================================================
-   1. قائمة المواد
-   ======================================================================= */
+
 const COURSES_DATA = [
-  // --- CP1 (S1) ---
+
   {
     year: "cp1",
     semester: "s1",
@@ -370,7 +362,7 @@ const COURSES_DATA = [
     driveUrl: "https://drive.google.com/drive/folders/12lAzxk1j7Kf3rW7qJ3gMZDwdXI5ParbK?usp=sharing"
   },
 
-  // --- CP1 (S2) ---
+
   {
     year: "cp1",
     semester: "s2",
@@ -421,7 +413,7 @@ const COURSES_DATA = [
     driveUrl: "https://drive.google.com/drive/folders/19syO9VPpDFsnpOlMt4FIdYNfelCrUZOB?usp=sharing"
   },
 
-  // --- CP2 (S3 & S4) ---
+
   {
     year: "cp2",
     semester: "s3",
@@ -535,9 +527,7 @@ let currentYear = "cp1";
 let currentSem = "all";
 let currentLang = localStorage.getItem("ensta-library-lang") || "fr";
 
-/* =======================================================================
-   3. الوظائف البرمجية (Logic)
-   ======================================================================= */
+
 function updateSemesterFilterButtons() {
   const semBtn1 = document.getElementById("semBtn1");
   const semBtn2 = document.getElementById("semBtn2");
@@ -565,7 +555,7 @@ function renderModules() {
   const dict = translations[currentLang];
   grid.innerHTML = "";
 
-  // فلترة المواد بناءً على السنة والسداسي المحدد
+
   const filtered = COURSES_DATA.filter(item => {
     const matchYear = item.year === currentYear;
     const matchSem = currentSem === "all" || item.semester === currentSem;
@@ -581,7 +571,6 @@ function renderModules() {
     const card = document.createElement("article");
     card.className = "module-card";
     
-    // تنسيق رقم البطاقة (01, 02...)
     const num = String(index + 1).padStart(2, '0');
 
     card.innerHTML = `
